@@ -14,7 +14,14 @@ This repository contains Python scripts and a shell script demonstrating key dat
 - `check_data_freshness.py`: Checks file freshness for data observability.
 
 ## Usage
-Run each script individually with Python (or bash for the shell script). Sample CSVs are generated inline—copy them to files as needed. Requires Git and DVC for versioning.
+Run each script individually with Python (or bash for the shell script).  
+Requires Git and DVC for versioning.
 
 ## Installation
-Use uv to install dependencies: `uv add pandas pandera scipy dvc`
+Use uv to install dependencies:
+
+```sh
+uv add pandas pandera scipy dvc
+# or
+uv sync
+```
