@@ -16,16 +16,8 @@ schema = DataFrameSchema(
     }
 )
 
-# Generate a sample CSV if needed (copy this to a file named 'sample_employees.csv')
-sample_csv_content = """age,salary,country
-30,50000.0,US
-45,75000.0,UK
-25,60000.0,IN
-"""
-Path("sample_employees.csv").write_text(sample_csv_content)
-
 try:
-    df = pd.read_csv("sample_employees.csv")
+    df = pd.read_csv("../data/sample_employees.csv")
     validated_df = schema.validate(df)
     print("Data validated successfully.")
 except SchemaError as e:

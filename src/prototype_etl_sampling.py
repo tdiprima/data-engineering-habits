@@ -6,13 +6,29 @@ from pathlib import Path
 
 import pandas as pd
 
-# Generate a sample large CSV if needed
-# This simulates a "huge" dataset with 100 rows; scale as needed.
-large_csv_content = "id,value\n" + "\n".join(f"{i},{i*2.5}" for i in range(100))
-Path("large_sample_dataset.csv").write_text(large_csv_content)
-
 # Load and sample
-full_df = pd.read_csv("large_sample_dataset.csv")
+full_df = pd.read_csv("../data/large_sample_dataset.csv")
 sampled_df = full_df.sample(frac=0.01, random_state=42)
 print(f"Sampled DataFrame shape: {sampled_df.shape}")
-# Now prototype your ETL on sampled_df (e.g., transformations, cleaning)
+
+# Example ETL transformations on the sampled data
+# 1. Data Cleaning: Remove any rows with missing values
+cleaned_df = sampled_df.dropna()
+
+# 2. Transformation: Create a new feature (e.g., value_squared)
+cleaned_df["value_squared"] = cleaned_df["value"] ** 2
+
+# 3. Transformation: Normalize the 'value' column to 0-1 range
+min_val = cleaned_df["value"].min()
+max_val = cleaned_df["value"].max()
+cleaned_df["value_normalized"] = (cleaned_df["value"] - min_val) / (max_val - min_val)
+
+# 4. Filtering: Keep only rows where id is even
+filtered_df = cleaned_df[cleaned_df["id"] % 2 == 0]
+
+print(f"\nAfter ETL transformations:")
+print(f"  - Rows after cleaning: {len(cleaned_df)}")
+print(f"  - Rows after filtering: {len(filtered_df)}")
+print(f"  - New columns added: {list(filtered_df.columns)}")
+print(f"\nSample of transformed data:")
+print(filtered_df.head())

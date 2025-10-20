@@ -22,5 +22,5 @@ def verify_freshness(filepath: str, max_hours=24):
         print(f"{filepath} is fresh (age: {file_age_hours:.1f} hours).")
 
 
-# Example usage (assumes a file exists; you can use one of the generated CSVs above)
-verify_freshness("sample_training_data.csv")
+# Example usage
+verify_freshness("../data/sample_training_data.csv")

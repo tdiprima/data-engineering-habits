@@ -23,25 +23,8 @@ def check_drift(
     return drifted_cols
 
 
-# Generate sample CSVs if needed
-# sample_old_data.csv (2024 data)
-old_csv_content = """feature1,feature2
-10,20.5
-15,25.0
-12,22.0
-"""
-Path("sample_old_data.csv").write_text(old_csv_content)
-
-# sample_new_data.csv (2025 data with slight drift)
-new_csv_content = """feature1,feature2
-11,21.0
-16,26.5
-13,23.5
-"""
-Path("sample_new_data.csv").write_text(new_csv_content)
-
 # Example usage
-old_df = pd.read_csv("sample_old_data.csv")
-new_df = pd.read_csv("sample_new_data.csv")
+old_df = pd.read_csv("../data/sample_old_data.csv")
+new_df = pd.read_csv("../data/sample_new_data.csv")
 drifted = check_drift(old_df, new_df)
 print("Drifted columns:", drifted)
