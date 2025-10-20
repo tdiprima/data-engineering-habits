@@ -1,6 +1,6 @@
 #!/bin/bash
-# This shell script initializes DVC in a Git repo, generates a sample CSV, 
-# adds it to DVC for versioning, and commits the changes to Git for reproducible dataset tracking.
+# This shell script initializes DVC in a Git repo, adds a csv file to DVC for
+# versioning, and commits the changes to Git for reproducible dataset tracking.
 
 # Initialize DVC and track the dataset
 dvc init

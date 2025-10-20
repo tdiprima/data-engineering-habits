@@ -1,7 +1,7 @@
 [project]
 name = "ml-data-engineering-habits"
 version = "0.1.0"
-description = "Add your description here"
+description = "ML Data Engineering Habits"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
