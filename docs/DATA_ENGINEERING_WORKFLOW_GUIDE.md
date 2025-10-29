@@ -35,7 +35,7 @@ You're just testing your ETL (Extract → Transform → Load) logic with a *tiny
 **Run it:**
 
 ```bash
-python src/prototype_etl_sampling.py
+uv run src/prototype_etl_sampling.py
 ```
 
 💡 *Tip:* Keep tweaking until your transformations look right. Then move on to the full dataset.
@@ -52,7 +52,7 @@ Now that your ETL logic works, check that your data actually *fits* what you exp
 **Run it:**
 
 ```bash
-python src/validate_data_schema.py
+uv run src/validate_data_schema.py
 ```
 
 💡 *Tip:* Always run validation before you process anything serious. If data breaks rules, stop the pipeline.
@@ -85,7 +85,7 @@ Now that your dataset's official, register it so your team knows it exists and w
 **Run it:**
 
 ```bash
-python src/register_data_catalog.py
+uv run src/register_data_catalog.py
 ```
 
 💡 *Tip:* Add tags and clear descriptions — future you (and your coworkers) will thank you.
@@ -102,7 +102,7 @@ Track *where* your data came from and *what's been done* to it. Think of it as a
 **Run it:**
 
 ```bash
-python src/log_data_lineage.py
+uv run src/log_data_lineage.py
 ```
 
 💡 *Tip:* Log every major step — ingestion, cleaning, feature engineering — so you can trace things later.
@@ -119,7 +119,7 @@ You don't wanna train on crusty, outdated data. This script makes sure your data
 **Run it:**
 
 ```bash
-python src/check_data_freshness.py
+uv run src/check_data_freshness.py
 ```
 
 💡 *Tip:* Use this before training or inference. Adjust how strict the "freshness" check is depending on your setup.
@@ -136,7 +136,7 @@ Sometimes your data changes subtly over time — this "drift" can mess up your M
 **Run it:**
 
 ```bash
-python src/detect_feature_drift.py
+uv run src/detect_feature_drift.py
 ```
 
 💡 *Tip:* Run this weekly or before retraining your model. If drift shows up — time to retrain or debug.
@@ -146,13 +146,13 @@ python src/detect_feature_drift.py
 Here's the whole thing, start to finish:
 
 ```bash
-python src/prototype_etl_sampling.py
-python src/validate_data_schema.py
+uv run src/prototype_etl_sampling.py
+uv run src/validate_data_schema.py
 bash src/version_data_with_dvc.sh
-python src/register_data_catalog.py
-python src/log_data_lineage.py
-python src/check_data_freshness.py
-python src/detect_feature_drift.py
+uv run src/register_data_catalog.py
+uv run src/log_data_lineage.py
+uv run src/check_data_freshness.py
+uv run src/detect_feature_drift.py
 ```
 
 ## 💎 Core Principles
